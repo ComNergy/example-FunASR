@@ -3,11 +3,20 @@ import shutil
 import tempfile
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 from .helper import TranscriptionRequest, do_transcription, download_file
 
 app = FastAPI()
 
+# 添加CORS中间件
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://gongjiyun.com", "https://www.gongjiyun.com"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def read_root():

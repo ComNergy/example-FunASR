@@ -22,13 +22,10 @@ Compose 如下
 ```yml
 services:
   slmasr:
-    image: harbor.suanleme.cn/admin/slmasr
-    build:
-      context: .
-    ports:
-      - 8000:8000
-    volumes:
-      - ./modelscope:/root/.cache/modelscope
+    image: harbor.suanleme.cn/admin/slmasr:v2
+    labels:
+      - suanleme_0.http.port=8000
+      - suanleme_0.http.prefix=paraformer
     deploy:
       resources:
         reservations:
@@ -45,8 +42,8 @@ services:
 2. 克隆此仓库：
 
    ```
-   git clone https://github.com/ComNergy/example-ffmpeg.git
-   cd example-ffmpeg
+   git clone https://github.com/ComNergy/example-FunASR.git
+   cd example-FunASR
    ```
 
 3. 启动服务：

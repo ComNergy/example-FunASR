@@ -1,6 +1,6 @@
 services:
   slmasr:
-    image: harbor.suanleme.cn/admin/slmasr
+    image: harbor.suanleme.cn/admin/slmasr:v2
     build:
       context: .
     ports:
